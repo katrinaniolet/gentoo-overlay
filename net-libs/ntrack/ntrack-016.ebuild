@@ -14,9 +14,9 @@ SRC_URI="http://launchpad.net/ntrack/main/016/+download/${P}.tar.gz"
 #These make creating new ebuilds much easier
 MIN_QT_VERSION="4.6.3"
 
-RDEPEND="qt? (>=x11-libs/qt-core-${MIN_QT_VERSION})
-	glib? (>=dev-lib/glib-2.0)
-	pygobject? (>=dev-python/pygobject-2.0)
+RDEPEND="qt? ( >=x11-libs/qt-core-${MIN_QT_VERSION} )
+	glib? ( >=dev-lib/glib-2.0 )
+	pygobject? ( >=dev-python/pygobject-2.0 )
 	"
 DEPEND="${DEPEND}
 	"
