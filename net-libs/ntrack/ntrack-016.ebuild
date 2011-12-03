@@ -45,9 +45,9 @@ src_configure() {
 		CONFIG="${CONFIG} --with-gobject=no"
 	fi
 	if use glib ; then
-		CONFIG="${CONFIG} --with-glib=yes"
+		CONFIG="${CONFIG} --with-glib2=yes"
 	else
-		CONFIG="${CONFIG} --with-glib=no"
+		CONFIG="${CONFIG} --with-glib2=no"
 	fi
 
 	econf ${CONFIG} || die "Make failed!"
