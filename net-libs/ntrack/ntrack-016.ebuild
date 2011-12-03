@@ -53,4 +53,8 @@ src_configure() {
 	econf ${CONFIG} || die "Make failed!"
 }
 
+src_install() {
+	emake DESTDIR="${D}" install || die "Install failed"
+	dodoc README ChangeLog NEWS || die
+}
 
