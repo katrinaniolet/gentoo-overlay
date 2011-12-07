@@ -1,0 +1,41 @@
+--- a/posix.mak
++++ b/posix.mak
+@@ -45,7 +45,7 @@ ifeq (,$(MODEL))
+ endif
+ 
+ # Configurable stuff that's rarely edited
+-DRUNTIME_PATH = ../druntime
++DRUNTIME_PATH = /usr/include/druntime 
+ ZIPFILE = phobos.zip
+ ROOT_OF_THEM_ALL = generated
+ ROOT = $(ROOT_OF_THEM_ALL)/$(OS)/$(BUILD)/$(MODEL)
+@@ -57,7 +57,7 @@ BIGDOC_OUTPUT_DIR = /tmp
+ SRC_DOCUMENTABLES = index.d $(addsuffix .d,$(STD_MODULES) $(STD_NET_MODULES) $(EXTRA_DOCUMENTABLES))
+ STDDOC = $(DOCSRC)/std.ddoc
+ BIGSTDDOC = $(DOCSRC)/std_consolidated.ddoc
+-DDOCFLAGS=-m$(MODEL) -d -c -o- -version=StdDdoc -I$(DRUNTIME_PATH)/import $(DMDEXTRAFLAGS)
++DDOCFLAGS=-m$(MODEL) -d -c -o- -version=StdDdoc -I$(DRUNTIME_PATH) $(DMDEXTRAFLAGS)
+ 
+ # Variable defined in an OS-dependent manner (see below)
+ CC =
+@@ -75,9 +75,9 @@ MAKEFILE:=$(lastword $(MAKEFILE_LIST))
+ 
+ # Set DRUNTIME name and full path
+ ifeq (,$(findstring win,$(OS)))
+-	DRUNTIME = $(DRUNTIME_PATH)/lib/libdruntime.a
++	DRUNTIME = /usr/lib/libdruntime.a
+ else
+-	DRUNTIME = $(DRUNTIME_PATH)/lib/druntime.lib
++	DRUNTIME = /usr/lib/druntime.lib
+ endif
+ 
+ # Set CC and DMD
+@@ -111,7 +111,7 @@ ifeq ($(CC),cc)
+ endif
+ 
+ # Set DFLAGS
+-DFLAGS := -I$(DRUNTIME_PATH)/import $(DMDEXTRAFLAGS) -w -d -m$(MODEL)
++DFLAGS := -I$(DRUNTIME_PATH) $(DMDEXTRAFLAGS) -w -d -m$(MODEL)
+ ifeq ($(BUILD),debug)
+ 	DFLAGS += -g -debug
+ else
