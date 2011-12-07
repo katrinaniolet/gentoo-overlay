@@ -10,7 +10,7 @@ HOMEPAGE="http://www.digitalmars.com/d/"
 LICENSE="Boost-1.0"
 SLOT="2"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
+IUSE="doc"
 EAPI="2"
 
 EGIT_REPO_URI="git://github.com/D-Programming-Language/druntime.git"
@@ -29,6 +29,8 @@ src_install() {
 	dolib.a "lib/libdruntime.a" || die "Install failed"
 	dodir /usr/include/druntime
 	mv "import"/* "${D}/usr/include/druntime/"
-	dodoc "doc"/*
+	if use doc ; then
+		dodoc "doc"/*
+	fi
 }
 
