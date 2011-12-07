@@ -22,8 +22,8 @@ DEPEND="=dev-lang/dmd-${PV}
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	alias "dmd"="dmd -I/usr/include/druntime"
-	make -f posix.mak || die "Phobos compilation failed"
+	epatch "${FILESDIR}/runtimelocation.patch"
+	make -I/usr/include/druntime -f posix.mak || die "Phobos compilation failed"
 }
 
 src_install() {
