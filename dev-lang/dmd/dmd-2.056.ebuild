@@ -18,8 +18,7 @@ EGIT_COMMIT="v${PV}"
 
 RESTRICT="mirror"
 
-DEPEND="sys-apps/findutils
-	!dev-lang/dmd-bin:2"
+DEPEND="!dev-lang/dmd-bin:2"
 RDEPEND="amd64? ( app-emulation/emul-linux-x86-compat )"
 PDEPEND="=dev-libs/phobos-${PV}"
 
