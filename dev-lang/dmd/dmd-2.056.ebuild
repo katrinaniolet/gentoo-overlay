@@ -25,7 +25,7 @@ PDEPEND="=dev-libs/phobos-${PV}"
 src_compile() {
 	cd "src"
 	ln -s . mars
-	make -f linux.mak || die "make failed"
+	make -f posix.mak || die "make failed"
 }
 
 src_install() {
