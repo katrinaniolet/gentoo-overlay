@@ -16,11 +16,8 @@ EAPI="2"
 EGIT_REPO_URI="git://github.com/D-Programming-Language/dmd.git"
 EGIT_COMMIT="v${PV}"
 
-RESTRICT="mirror"
-
 DEPEND="!dev-lang/dmd-bin:2"
 RDEPEND="amd64? ( app-emulation/emul-linux-x86-compat )"
-PDEPEND="=dev-libs/phobos-${PV}"
 
 src_compile() {
 	cd "src"
