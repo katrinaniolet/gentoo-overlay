@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils git-2
 
 EAPI="2"
 
@@ -17,25 +17,19 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 EAPI="2"
 
-DEPEND="=dev-lang/dmd-${PV}"
+DEPEND="=dev-lang/dmd-${PV}
+	=dev-lang/d-runtime-${PV}"
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	cd "phobos"
 	alias "dmd"="dmd -I/usr/include/druntime"
 	make -f linux.mak || die "Phobos compilation failed"
 }
 
 src_install() {
-# lib
-	dolib.a "${WORKDIR}/generated/posix/release/libphobos2.a" || die "Install failed"
-
-# includes
+	dolib.a "${WORKDIR}/generated/linux/release/libphobos2.a" || die "Install failed"
 	rm -rf "generated"
 	dodir /usr/include/phobos2
 	mv * "${D}/usr/include/phobos2/"
-
-# Config
-	dobin "${FILESDIR}/dmd.dmd2-phobos"
 }
 
