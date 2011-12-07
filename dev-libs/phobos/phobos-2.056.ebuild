@@ -27,7 +27,7 @@ src_compile() {
 }
 
 src_install() {
-	dolib.a "${WORKDIR}/generated/linux/release/32/libphobos2.a" || die "Install failed"
+	dolib.a "${WORKDIR}/${PV}/generated/linux/release/32/libphobos2.a" || die "Install failed"
 	rm -rf "generated"
 	dodir /usr/include/phobos2
 	mv * "${D}/usr/include/phobos2/"
