@@ -23,7 +23,7 @@ RDEPEND="${DEPEND}"
 
 src_compile() {
 	alias "dmd"="dmd -I/usr/include/druntime"
-	make -f linux.mak || die "Phobos compilation failed"
+	make -f posix.mak || die "Phobos compilation failed"
 }
 
 src_install() {
