@@ -14,21 +14,20 @@ IUSE=""
 EAPI="2"
 
 EGIT_REPO_URI="git://github.com/D-Programming-Language/druntime.git"
-EGIT_COMMIT="v${PV}.zip"
+EGIT_COMMIT="v${PV}"
 
 RESTRICT="mirror"
 
 DEPEND="=dev-lang/dmd-${PV}"
-RDEPEND="dev-util/dmd-common
-	amd64? ( app-emulation/emul-linux-x86-compat )"
+RDEPEND="${DEPEND}"
 
 src_compile() {
-	export HOME="$(pwd)"
 	make -f posix.mak
 }
 
 src_install() {
-	dolib.a "libdruntime.a" || die "Install failed"
+	dolib.a "lib/libdruntime.a" || die "Install failed"
 	dodir /usr/include/druntime
 	mv "import"/* "${D}/usr/include/druntime/"
 }
+
