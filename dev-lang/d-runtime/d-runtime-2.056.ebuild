@@ -29,5 +29,6 @@ src_install() {
 	dolib.a "lib/libdruntime.a" || die "Install failed"
 	dodir /usr/include/druntime
 	mv "import"/* "${D}/usr/include/druntime/"
+	dodoc "doc"/*
 }
 
