@@ -1,0 +1,19 @@
+-- a/posix.mak
++++ b/posix.mak
+@@ -41,7 +41,7 @@ endif
+ 
+ # For now, 32 bit is the default model
+ ifeq (,$(MODEL))
+-       MODEL:=32
++       MODEL:=64
+ endif
+ 
+ # Configurable stuff that's rarely edited
+@@ -106,7 +106,7 @@ ifeq ($(CC),cc)
+        ifeq ($(BUILD),debug)
+                CFLAGS += -g
+        else
+-               CFLAGS += -O3
++               CFLAGS += -Ofast -march=corei7 -mtune=corei7
+        endif
+ endif

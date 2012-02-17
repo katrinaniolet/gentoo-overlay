@@ -1,0 +1,18 @@
+--- a/src/posix.mak
++++ b/src/posix.mak
+@@ -29,7 +29,7 @@ C=backend
+ TK=tk
+ ROOT=root
+ 
+-MODEL=32
++MODEL=64
+ 
+ ifeq (OSX,$(TARGET))
+     ## See: http://developer.apple.com/documentation/developertools/conceptual/cross_development/Using/chapter_3_section_2.html#//apple_ref/doc/uid/20002000-1114311-BABGCAAB
+@@ -44,6 +44,7 @@ ifeq (OSX,$(TARGET))
+     #LDFLAGS=-lstdc++ -isysroot ${SDK} -Wl,-syslibroot,${SDK} -framework CoreServices
+     LDFLAGS=-lstdc++ -isysroot ${SDK} -Wl -framework CoreServices
+ else
++    TARGET_CFLAGS=-Ofast -march=corei7 -mtune=corei7
+     LDFLAGS=-lm -lstdc++ -lpthread
+ endif

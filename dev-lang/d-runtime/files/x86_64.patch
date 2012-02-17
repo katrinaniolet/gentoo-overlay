@@ -1,0 +1,17 @@
+--- a/posix.mak
++++ b/posix.mak
+@@ -25,12 +25,12 @@ DMD=dmd
+ DOCDIR=doc
+ IMPDIR=import
+ 
+-MODEL=32
++MODEL=64
+ 
+ DFLAGS=-m$(MODEL) -O -release -inline -nofloat -w -d -Isrc -Iimport -property
+ UDFLAGS=-m$(MODEL) -O -release -nofloat -w -d -Isrc -Iimport -property
+ 
+-CFLAGS=-m$(MODEL) -O
++CFLAGS=-m$(MODEL) -Ofast -march=corei7 -mtune=corei7
+ 
+ OBJDIR=obj/$(MODEL)
+ DRUNTIME_BASE=druntime-$(OS)$(MODEL)
