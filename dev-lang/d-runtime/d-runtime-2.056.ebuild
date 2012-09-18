@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="2"
 inherit eutils git-2
 
 DESCRIPTION="Reference compiler for the D programming language"
@@ -11,7 +12,6 @@ LICENSE="Boost-1.0"
 SLOT="2"
 KEYWORDS="~x86 ~amd64"
 IUSE="doc"
-EAPI="2"
 
 EGIT_REPO_URI="git://github.com/D-Programming-Language/druntime.git"
 EGIT_COMMIT="v${PV}"
