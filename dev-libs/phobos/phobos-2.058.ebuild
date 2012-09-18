@@ -2,9 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils git-2
-
 EAPI="2"
+inherit eutils git-2
 
 DESCRIPTION="The Phobos standard library for DMD"
 HOMEPAGE="http://www.digitalmars.com/d/"
@@ -15,7 +14,6 @@ LICENSE="Boost-1.0"
 SLOT="2"
 KEYWORDS="~amd64"
 IUSE=""
-EAPI="2"
 
 DEPEND="=dev-lang/dmd-${PV}
 	=dev-lang/d-runtime-${PV}"
